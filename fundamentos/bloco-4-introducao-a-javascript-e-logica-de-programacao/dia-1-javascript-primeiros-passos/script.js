@@ -64,5 +64,9 @@ function anguloTriangulo (angulo1, angulo2, angulo3){
         return false
     }
 }
+<<<<<<< HEAD
 console.log(anguloTriangulo(angulo1, angulo2, angulo3))
 /**TESTE */
+=======
+console.log(anguloTriangulo(angulo1, angulo2, angulo3))
+>>>>>>> 6831702d637dc408181453f2a10db8a153f1867f
