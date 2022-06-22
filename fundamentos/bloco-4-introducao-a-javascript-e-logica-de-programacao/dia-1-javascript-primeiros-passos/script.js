@@ -65,4 +65,3 @@ function anguloTriangulo (angulo1, angulo2, angulo3){
     }
 }
 console.log(anguloTriangulo(angulo1, angulo2, angulo3))
-/**TESTE */
