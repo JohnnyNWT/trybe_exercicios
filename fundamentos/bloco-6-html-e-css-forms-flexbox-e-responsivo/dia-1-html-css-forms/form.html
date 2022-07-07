@@ -11,12 +11,12 @@
         <form action="">
             <label for="nome">
                 Nome:
-                <input type="text" name="nome" id="nome" placeholder="digite seu nome">
+                <input type="text" name="nome" id="nome" placeholder="digite seu nome" minlength="10" maxlength="40">
             </label>
             <br><br>
             <label for="email">
                 Email:
-                <input type="email" name="email" id="email" placeholder="digite seu email">
+                <input type="email" name="email" id="email" placeholder="digite seu email" minlength="10" maxlength="50">
             </label>
             <br><br>
             <label for="lugar">
@@ -45,14 +45,24 @@
             </label>
             <br>
             <label for="check1">
-                Está pronto para fazer a melhor viagem de sua vida?
+                Gostaria de receber outras incríveis oportunidades oferecidas pela Trybe?
                 <input type="checkbox" name="check1" id="check1">
             </label>
             <br>
             <label for="check2">
-                VQV
+                Concordo que imagens das minhas férias poderão ser usadas na divulgação de concursos futuros.
                 <input type="checkbox" name="check2" id="check2">
             </label>
+            <br><br>
+            <button type="reset">Limpar</button>
+            <button type="submit" id="botao-enviar">Enviar</button>
+            <script>
+                let button = document.getElementById('botao-enviar')
+                function botao(event) {
+                    preventDefault();
+                }
+                button.addEventListener('click', botao)
+            </script>
         </form>
     </header>
 </body>
