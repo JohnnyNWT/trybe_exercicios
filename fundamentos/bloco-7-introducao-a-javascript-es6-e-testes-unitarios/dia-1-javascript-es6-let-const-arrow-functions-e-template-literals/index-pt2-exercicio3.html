@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: blueviolet;
+}
+
+h1 {
+    text-align: center;
+    font-size: 60px;
+}
+
+button {
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: none;
+    margin-top: 20px;
+    font-size: 30px;
+}
+
+div {
+    width: 20%;
+    margin: 0 auto;
+}
+  </style>
+</head>
+
+<body>
+  <h1>CONTADOR DE CLIQUES</h1>
+  <div>
+    <button id="botao">0</button>
+  </div>
+  <script>
+    const botao = document.getElementById('botao')
+    let contador = 0
+
+    function click() {
+      contador += 1
+      botao.innerText = contador
+    }
+
+    botao.addEventListener('click', click)       
+  </script>
+</body>
+</html>
