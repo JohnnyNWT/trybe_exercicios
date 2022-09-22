@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+    <style>
+      body {
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      #container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      button {
+        height: 50px;
+        width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <p>Color: <span id="value">white</span></p>
+      <button id="previous">Previous color</button>
+      <button id="next">Next color</button>
+    </div>
+
+
+    <script>
+      const NEXT_COLOR = 'NEXT_COLOR'
+      const PREVIOUS_COLOR = 'PREVIOUS_COLOR'
+      const nextButton = document.getElementById('next');
+      const previousButton = document.getElementById('previous');
+      nextButton.addEventListener('click', () => {
+        store.dispatch( {type: NEXT_COLOR} )
+      });
+      previousButton.addEventListener('click', () => {
+        store.dispatch({type: PREVIOUS_COLOR})
+      });
+
+      const INITIAL_STATE = {
+        colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
+        index: 0,
+      };
+      function reducer (state = INITIAL_STATE, action) {
+        switch(action.type) {
+          case NEXT_COLOR:
+            INITIAL_STATE.index <= INITIAL_STATE.colors.length ? INITIAL_STATE.index += 1 : INITIAL_STATE.index
+          break;
+          case PREVIOUS_COLOR:
+            INITIAL_STATE.index >= 0 ? INITIAL_STATE.index -= 1 : INITIAL_STATE.index
+          break;
+          default:
+            state
+        }
+        return INITIAL_STATE.index
+      }
+      const store = Redux.createStore(reducer)
+      store.subscribe(() => {
+        const element = document.getElementById('value');
+        const colorContainer = document.getElementById('container');
+        element.innerHTML = INITIAL_STATE.colors[store.getState()];
+        colorContainer.style.backgroundColor = INITIAL_STATE.colors[store.getState()]
+      });
+    </script>
+  </body>
+</html>
